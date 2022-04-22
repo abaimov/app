@@ -1,0 +1,19 @@
+[
+    {
+        "id": "bbc61dcd-5061-48b0-9726-bc59bf050971",
+        "name": "test1",
+        "lastname": "test1",
+        "bithday": "19.04.2022",
+        "email": "email@gmail.com",
+        "password": "$2b$10$p5xMP3WTKaZhlPQGVPBNPOnEUmCXe3IMpmDfyaWYVlB/DYz9XWzGu"
+    },
+    {
+        "id": "d545741f-57b8-4335-9953-b23a895d27e2",
+        "name": "nick",
+        "lastname": "petrov",
+        "bithday": "27.04.2022",
+        "email": "user1@gmail.com",
+        "password": "$2b$10$p5xMP3WTKaZhlPQGVPBNPOlqoXIeeH5EFne2jSFUnCjMT3Q8mhD7S"
+    }
+
+]
