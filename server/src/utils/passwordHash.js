@@ -1,14 +1,17 @@
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+const saltRounds = 10;
 
-const salt = "$2b$10$p5xMP3WTKaZhlPQGVPBNPO";
+exports.createPasswordHash = (password) => {
+  const salt = bcrypt.genSaltSync(saltRounds);
 
-exports.createPasswordHash = (password) =>
-  new Promise((resolve, reject) => {
-    bcrypt.hash(password, salt, (err, hash) => {
-      if (err) {
-        reject(err);
-      } else {
-        resolve(hash);
-      }
-    });
-  });
+  const hash = bcrypt.hashSync(password, salt);
+  console.log("hash", hash);
+  return hash;
+};
+
+exports.comparePasswordLogin = (password, hash) => {
+  const valid = bcrypt.compareSync(password, hash);
+
+  return valid;
+};

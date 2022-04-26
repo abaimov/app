@@ -1,5 +1,6 @@
 import React from "react";
-import axios from "axios";
+
+import { getImagesAxios } from "../../axios/index";
 import { Avatar, Image } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import "./post.css";
@@ -40,10 +41,9 @@ function Author() {
 function Content() {
   const [imagesState, setImagesState] = React.useState([]);
   React.useEffect(() => {
-    axios
-      .get("http://localhost:5000/pets/images/")
-      .then((responce) => setImagesState(responce.data));
+    getImagesAxios().then((responce) => setImagesState(responce.data));
   }, []);
+
   return (
     <div className="content">
       {imagesState.map((img, index) => (

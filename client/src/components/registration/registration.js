@@ -1,11 +1,14 @@
 import React from "react";
-import axios from "axios";
+import { registration } from "../../axios/index";
 
-import { Form, Input, Button, DatePicker } from "antd";
+import { Form, Input, Button, DatePicker, message } from "antd";
 
 const RegistrationUser = () => {
+  const [form] = Form.useForm();
   const onFinish = (values) => {
-    axios.post("http://localhost:5000/register", JSON.stringify(values));
+    registration(values);
+    message.success("User aded !");
+    // form.resetFields();
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -17,7 +20,7 @@ const RegistrationUser = () => {
       {
         type: "object",
         required: true,
-        message: "Please select time!",
+        message: "Please select date!",
       },
     ],
   };
@@ -29,6 +32,7 @@ const RegistrationUser = () => {
       </div>
       <div>
         <Form
+          form={form}
           name="basic"
           labelCol={{
             span: 7,
@@ -37,7 +41,7 @@ const RegistrationUser = () => {
             span: 16,
           }}
           initialValues={{
-            values: "",
+            remember: true,
           }}
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}

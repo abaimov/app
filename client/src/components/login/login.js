@@ -1,11 +1,15 @@
 import React from "react";
 import axios from "axios";
 import "./login.css";
+
 import { Form, Input, Button } from "antd";
 
 const LoginUser = () => {
+  const [form] = Form.useForm();
   const onFinish = (values) => {
-    axios.post("http://localhost:5000/user", JSON.stringify(values));
+    axios.post("http://localhost:5000/login", JSON.stringify(values));
+
+    form.resetFields();
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -19,6 +23,7 @@ const LoginUser = () => {
       </div>
       <div>
         <Form
+          form={form}
           name="basic"
           labelCol={{
             span: 7,
